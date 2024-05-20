@@ -1,0 +1,82 @@
+---
+title: "TRABALHO 1 - Natalidade/Fecundidade e Mortalidade"
+subtitle: "Demografia 1.2024"
+author: 
+  - "Micael Egídio Papa da Silva^[Matrícula: 211029236]"
+date: "`r format(Sys.Date(),'%d/%m/%Y')`"
+output:
+  bookdown::html_document2:
+    df_print: paged
+    fig_caption: true
+    number_sections: no
+    theme: lumen
+    toc: no
+    toc_float:
+      collapsed: yes
+      smooth_scroll: yes
+  bookdown::pdf_document2:  
+    citation_package: natbib
+    fig_caption: true
+    number_sections: true
+    toc_depth: 4
+    latex_engine: xelatex
+  bookdown::word_document2: default
+fontsize: 12pt
+linkcolor: blue
+header-includes:
+  - \usepackage{indentfirst}
+  - \usepackage{amsmath}
+  - \usepackage{float}
+  - \setlength{\parindent}{4em}
+  - \setlength{\parskip}{1.5em}
+  - \usepackage{titling}
+  - \pretitle{\begin{center}
+    \includegraphics[width=1in,height=1in]{marca_unb_completa_horizontal.jpg}\LARGE\\}
+  - \posttitle{\end{center}}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+
+if (!require("pacman")) install.packages("pacman")
+
+if (!require("microdatasus")) {
+  pacman::p_load("remotes")
+  remotes::install_github("rfsaldanha/microdatasus")
+}
+
+pacman::p_load("microdatasus", ## Download dos dados de 2000 a 2020
+               "tidyverse",    ## Pacote de utilidades para manipulação e visualização
+               "kableExtra",   ## Elaboração das tabelas em LaTeX e html
+               "lubridate",
+               "readxl",
+               'BiocManager',
+               "Rcmdr")
+
+options(scipen = 99)
+
+```
+
+
+
+### Download dos dados
+
+
+### Dados de Nascidos Vivos a partir do SINASC
+
+#### Microdados DATASUS
+
+Os microdados do SINASC de 2000 a 2020 foram baixados com a ajuda do pacote [`microdatasus`](https://github.com/rfsaldanha/microdatasus), criado por @. Os procedimentos de pré-processamento dos micradodos realizados podem ser encontrados em: https://github.com/rfsaldanha/microdatasus/wiki/Conven%C3%A7%C3%B5es-SINASC. Os dados para o Estado de Pernambuco podem ser baixados por
+
+
+```{r, echo=TRUE}
+  # Download dos microdados do datasus
+
+dados_sinasc <- fetch_datasus(
+  year_start         = 2000,
+  year_end           = 2022,
+  uf                 = "SP",
+  information_system = "SINASC"
+)
+```
