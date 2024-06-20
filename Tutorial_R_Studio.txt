@@ -31,4 +31,4 @@ C:\Users\PC>docker run -p 8787:8787 -d --name rstudio -e PASSWORD=YOUR_PASSWORD 
 
 C:\Users\PC>docker run -p 8787:8787 -d --name rstudio -e PASSWORD=YOUR_PASSWORD -v /docker/rstudio/Documents:/home/rstudio/Documents rocker/rstudio
 
-#####################################################################################################################################################
+docker run -p 8787:8787 -d --name rstudio -e PASSWORD=YOUR_PASSWORD -v C:/Users/PC/Desktop/R_Studio_Docker:/home/rstudio/Documents rocker/rstudio
